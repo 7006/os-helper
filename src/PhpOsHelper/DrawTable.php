@@ -4,7 +4,7 @@ namespace JoliCode\PhpOsHelper;
 
 class DrawTable {
 
-  public static function DrawTable($arr) { ?>
+  public static function DrawTable($methods_result_array) { ?>
     <head>
       <style>
         th {
@@ -23,32 +23,14 @@ class DrawTable {
           <th>Static Method</th>
           <th>Result</th>
         </tr>
-        <tr>
-          <td align = "center">isUnix()</td>
-          <td align = "center"><?php var_dump($arr["isUnix()"]);?></td>
-        </tr>
-        <tr>
-          <td align = "center">isWindowsSubsystemForLinux()</td>
-          <td align = "center"><?php var_dump($arr["isWindowsSubsystemForLinux()"]);?></td>
-        </tr>
-        <tr>
-          <td align = "center">isWindows()</td>
-          <td align = "center"><?php var_dump($arr["isWindows()"]);?></td>
-        </tr>
-        <tr>
-          <td align = "center">isWindowsSeven()</td>
-          <td align = "center"><?php var_dump($arr["isWindowsSeven()"]);?></td>
-        </tr>
-        <tr>
-          <td align = "center">isWindowsEightOrHigher()</td>
-          <td align = "center"><?php var_dump($arr["isWindowsEightOrHigher()"]);?></td>
-        </tr>
-        <tr>
-          <td align = "center">isMacOS()</td>
-          <td align = "center"><?php var_dump($arr["isMacOS()"]);?></td>
-        </tr>
-      </table>
-     </body>
+        <?php foreach ($methods_result_array as $key => $value) : ?>
+          <tr>
+            <td align = "center"><?php echo $key;?></td>
+            <td align = "center"><?php var_dump($value);?></td>
+          </tr>
+        <?php endforeach;?>
+       </table>
+    </body>
  <?php }
 }
 ?>
