@@ -1,7 +1,6 @@
 <?php
 
-//namespace JoliCode\PhpOsHelper;
-namespace OsHelper;
+namespace JoliCode\PhpOsHelper;
 
 class OsHelper
 {
@@ -10,13 +9,12 @@ class OsHelper
     private static string $macOSVersion;
 
     public static function isWork() {
-        echo "Yes, it works";
+        echo "it works";
     }
-
     
     public static function isUnix(): bool
     {
-        //return '/' === \DIRECTORY_SEPARATOR;
+        return '/' === \DIRECTORY_SEPARATOR;
     }
 
     public static function isWindowsSubsystemForLinux(): bool
@@ -54,15 +52,5 @@ class OsHelper
         }
 
         return str_contains(self::$kernelName, 'Darwin');
-    }
-
-    public static function getMacOSVersion(): string
-    {
-        if (!isset(self::$macOSVersion)) {
-            $output = exec('sw_vers -productVersion 2>/dev/null');
-            self::$macOSVersion = trim($output ?: '');
-        }
-
-        return self::$macOSVersion;
     }
 }

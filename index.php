@@ -2,6 +2,8 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-\OsHelper\OsHelper::isWork();
-
-//phpinfo();
+?>
+<body>
+<h1>future table</h1>
+  <?php \JoliCode\PhpOsHelper\OsHelper::isWork(); ?>
+</body>
