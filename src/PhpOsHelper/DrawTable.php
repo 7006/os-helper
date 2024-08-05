@@ -4,9 +4,7 @@ namespace JoliCode\PhpOsHelper;
 
 class DrawTable {
 
-  //public $arr = GetResult::ArrayReturn();
-
-  public static function DrawTable() { ?>
+  public static function DrawTable($arr) { ?>
     <head>
       <style>
         th {
@@ -27,31 +25,30 @@ class DrawTable {
         </tr>
         <tr>
           <td align = "center">isUnix()</td>
-          <td align = "center">1</td>
+          <td align = "center"><?php var_dump($arr["isUnix()"]);?></td>
         </tr>
         <tr>
           <td align = "center">isWindowsSubsystemForLinux()</td>
-          <td align = "center">2</td>
+          <td align = "center"><?php var_dump($arr["isWindowsSubsystemForLinux()"]);?></td>
         </tr>
         <tr>
           <td align = "center">isWindows()</td>
-          <td align = "center">3</td>
+          <td align = "center"><?php var_dump($arr["isWindows()"]);?></td>
         </tr>
         <tr>
           <td align = "center">isWindowsSeven()</td>
-          <td align = "center">4</td>
+          <td align = "center"><?php var_dump($arr["isWindowsSeven()"]);?></td>
         </tr>
         <tr>
           <td align = "center">isWindowsEightOrHigher()</td>
-          <td align = "center">5</td>
+          <td align = "center"><?php var_dump($arr["isWindowsEightOrHigher()"]);?></td>
         </tr>
         <tr>
           <td align = "center">isMacOS()</td>
-          <td align = "center">6</td>
+          <td align = "center"><?php var_dump($arr["isMacOS()"]);?></td>
         </tr>
       </table>
      </body>
-    
  <?php }
 }
 ?>
