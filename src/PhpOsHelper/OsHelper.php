@@ -14,8 +14,7 @@ class OsHelper
     
     public static function isUnix(): bool
     {
-        //return '/' === \DIRECTORY_SEPARATOR;
-        return true;
+        return '/' === \DIRECTORY_SEPARATOR;
     }
 
     public static function isWindowsSubsystemForLinux(): bool
