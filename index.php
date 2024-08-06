@@ -2,14 +2,14 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-//Use static methods in class OsHelper
-$methods_result_array = \JoliCode\PhpOsHelper\GetResult::ArrayReturn();
-\JoliCode\PhpOsHelper\Table::render($methods_result_array);
+use \JoliCode\PhpOsHelper\OsDetails;
+use \JoliCode\PhpOsHelper\Table;
+use \JoliCode\PhpOsHelper\Os;
 
-echo "<br><br>";
+$systemDetails = OsDetails::getSystemDetails();
+Table::render($systemDetails);
 
-//Use nontatic methods in class Os
-$os = new \JoliCode\PhpOsHelper\Os();
-$methods_result_array = \JoliCode\PhpOsHelper\GetResult::MyArrayReturn($os);
-\JoliCode\PhpOsHelper\Table::render($methods_result_array);
+$os = new Os();
+$systemDetails = OsDetails::getSystemDetails2($os);
+Table::render($systemDetails);
 

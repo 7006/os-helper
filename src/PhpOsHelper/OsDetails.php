@@ -2,14 +2,10 @@
 
 namespace JoliCode\PhpOsHelper;
 
-class GetResult {
+class OsDetails {
 
-  public function __constract() {
-    
-  }
-
-  public static function ArrayReturn() {
-    return $method_results = [
+  public static function getSystemDetails() {
+    return [
       "Unix" => OsHelper::isUnix(),
       "Windows Subsystem For Linux" => OsHelper::isWindowsSubsystemForLinux(),
       "Windows" => OsHelper::isWindows(),
@@ -19,8 +15,8 @@ class GetResult {
     ];
   }
 
-  public static function MyArrayReturn($os) {
-    return $method_results = [
+  public static function getSystemDetails2($os) {
+    return [
       "Unix" => $os->isUnix(),
       "Windows Subsystem For Linux" => $os->isWindowsSubsystemForLinux(),
       "Windows" => $os->isWindows(),

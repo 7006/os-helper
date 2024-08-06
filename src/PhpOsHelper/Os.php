@@ -4,15 +4,9 @@ namespace JoliCode\PhpOsHelper;
 
 class Os
 {
-    public string $kernelName;
-    public string $kernelVersion;
-    public string $macOSVersion;
-
-    public function __construct() {
-      $this->kernelName = php_uname('s');
-      $this->kernelVersion = php_uname('r');
-      $this->macOSVersion = php_uname('r');
-    }
+    private ?string $kernelName = NULL;
+    private ?string $kernelVersion = NULL;
+    private ?string $macOSVersion = NULL;
 
     public function isUnix(): bool
     {
@@ -31,16 +25,15 @@ class Os
 
     public function isWindowsSeven(): bool
     {
-        if (!isset($this->kernelVersion)) {
+        if ($this->kernelVersion === NULL) {
             $this->kernelVersion = php_uname('r');
         }
-
         return '6.1' === $this->kernelVersion;
     }
 
     public function isWindowsEightOrHigher(): bool
     {
-        if (!isset($this->kernelVersion)) {
+        if ($this->kernelVersion === NULL) {
             $this->kernelVersion = php_uname('r');
         }
 
@@ -49,7 +42,7 @@ class Os
 
     public function isMacOS(): bool
     {
-        if (!isset($this->kernelName)) {
+        if ($this->kernelName === NULL) {
             $this->kernelName = php_uname('s');
         }
 
