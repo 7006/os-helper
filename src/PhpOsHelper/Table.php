@@ -2,9 +2,9 @@
 
 namespace JoliCode\PhpOsHelper;
 
-class DrawTable {
+class Table {
 
-  public static function DrawTable($methods_result_array) { ?>
+  public static function render($methods_result_array) { ?>
     <head>
       <style>
         th {
@@ -26,7 +26,7 @@ class DrawTable {
         <?php foreach ($methods_result_array as $key => $value) : ?>
           <tr>
             <td align = "center"><?php echo $key;?></td>
-            <td align = "center"><?php var_dump($value);?></td>
+            <td align = "center"><?php if($value): echo "Yes"; else: echo "No"; endif;?></td>
           </tr>
         <?php endforeach;?>
        </table>

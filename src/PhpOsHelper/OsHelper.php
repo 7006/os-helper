@@ -8,10 +8,6 @@ class OsHelper
     private static string $kernelVersion;
     private static string $macOSVersion;
 
-    public static function isWork() {
-        echo "it works";
-    }
-    
     public static function isUnix(): bool
     {
         return '/' === \DIRECTORY_SEPARATOR;

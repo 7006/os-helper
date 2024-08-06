@@ -6,12 +6,23 @@ class GetResult {
 
   public static function ArrayReturn() {
     return $method_results = [
-      "isUnix()" => \JoliCode\PhpOsHelper\OsHelper::isUnix(),
-      "isWindowsSubsystemForLinux()" => \JoliCode\PhpOsHelper\OsHelper::isWindowsSubsystemForLinux(),
-      "isWindows()" => \JoliCode\PhpOsHelper\OsHelper::isWindows(),
-      "isWindowsSeven()" => \JoliCode\PhpOsHelper\OsHelper::isWindowsSeven(),
-      "isWindowsEightOrHigher()" => \JoliCode\PhpOsHelper\OsHelper::isWindowsEightOrHigher(),
-      "isMacOS()" => \JoliCode\PhpOsHelper\OsHelper::isMacOS(),  
+      "Unix" => OsHelper::isUnix(),
+      "Windows Subsystem For Linux" => OsHelper::isWindowsSubsystemForLinux(),
+      "Windows" => OsHelper::isWindows(),
+      "Windows 7" => OsHelper::isWindowsSeven(),
+      "Windows 8 or higher" => OsHelper::isWindowsEightOrHigher(),
+      "Mac OS" => OsHelper::isMacOS(),  
+    ];
+  }
+
+  public function MyArrayReturn($obj) {
+    return $method_results = [
+      "isUnix()" => OsHelper::isUnix(),
+      "isWindowsSubsystemForLinux()" => OsHelper::isWindowsSubsystemForLinux(),
+      "isWindows()" => OsHelper::isWindows(),
+      "isWindowsSeven()" => OsHelper::isWindowsSeven(),
+      "isWindowsEightOrHigher()" => OsHelper::isWindowsEightOrHigher(),
+      "isMacOS()" => OsHelper::isMacOS(),  
     ];
   }
 }
