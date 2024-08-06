@@ -20,7 +20,7 @@ class Table {
     <body>
       <table style="border:1px solid black;">
         <tr>
-          <th>Static Method</th>
+          <th>OS</th>
           <th>Result</th>
         </tr>
         <?php foreach ($methods_result_array as $key => $value) : ?>

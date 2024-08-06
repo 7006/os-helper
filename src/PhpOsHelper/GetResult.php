@@ -4,6 +4,10 @@ namespace JoliCode\PhpOsHelper;
 
 class GetResult {
 
+  public function __constract() {
+    
+  }
+
   public static function ArrayReturn() {
     return $method_results = [
       "Unix" => OsHelper::isUnix(),
@@ -15,14 +19,14 @@ class GetResult {
     ];
   }
 
-  public function MyArrayReturn($obj) {
+  public static function MyArrayReturn($os) {
     return $method_results = [
-      "isUnix()" => OsHelper::isUnix(),
-      "isWindowsSubsystemForLinux()" => OsHelper::isWindowsSubsystemForLinux(),
-      "isWindows()" => OsHelper::isWindows(),
-      "isWindowsSeven()" => OsHelper::isWindowsSeven(),
-      "isWindowsEightOrHigher()" => OsHelper::isWindowsEightOrHigher(),
-      "isMacOS()" => OsHelper::isMacOS(),  
+      "Unix" => $os->isUnix(),
+      "Windows Subsystem For Linux" => $os->isWindowsSubsystemForLinux(),
+      "Windows" => $os->isWindows(),
+      "Windows 7" => $os->isWindowsSeven(),
+      "Windows 8 or higher" => $os->isWindowsEightOrHigher(),
+      "Mac OS" => $os->isMacOS(),  
     ];
   }
 }

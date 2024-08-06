@@ -4,14 +4,14 @@ namespace JoliCode\PhpOsHelper;
 
 class Os
 {
-    private string $kernelName;
-    private string $kernelVersion;
-    private string $macOSVersion;
+    public string $kernelName;
+    public string $kernelVersion;
+    public string $macOSVersion;
 
-    public function __constructor() {
-      $this->$kernelName = php_uname('s');
-      $this->$kernelVersion = php_uname('v');
-      $this->$macOSVersion = php_uname('v');
+    public function __construct() {
+      $this->kernelName = php_uname('s');
+      $this->kernelVersion = php_uname('r');
+      $this->macOSVersion = php_uname('r');
     }
 
     public function isUnix(): bool
@@ -21,7 +21,7 @@ class Os
 
     public function isWindowsSubsystemForLinux(): bool
     {
-        return this->::isUnix() && str_contains(strtolower(php_uname()), 'microsoft');
+        return $this->isUnix() && str_contains(strtolower(php_uname()), 'microsoft');
     }
 
     public function isWindows(): bool
@@ -31,28 +31,28 @@ class Os
 
     public function isWindowsSeven(): bool
     {
-        if (!isset($this->$kernelVersion)) {
-            $this->$kernelVersion = php_uname('r');
+        if (!isset($this->kernelVersion)) {
+            $this->kernelVersion = php_uname('r');
         }
 
-        return '6.1' === this->$kernelVersion;
+        return '6.1' === $this->kernelVersion;
     }
 
     public function isWindowsEightOrHigher(): bool
     {
-        if (!isset($this->$kernelVersion)) {
-            $this->$kernelVersion = php_uname('r');
+        if (!isset($this->kernelVersion)) {
+            $this->kernelVersion = php_uname('r');
         }
 
-        return version_compare($this->$kernelVersion, '6.2', '>=');
+        return version_compare($this->kernelVersion, '6.2', '>=');
     }
 
-    // public function isMacOS(): bool
-    // {
-    //     if (!isset($this->$kernelName)) {
-    //         $this->$kernelName = php_uname('s');
-    //     }
+    public function isMacOS(): bool
+    {
+        if (!isset($this->kernelName)) {
+            $this->kernelName = php_uname('s');
+        }
 
-    //     return str_contains($this->$kernelName, 'Darwin');
-    // }
+        return str_contains($this->kernelName, 'Darwin');
+    }
 }
